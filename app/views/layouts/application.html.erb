@@ -4,11 +4,11 @@
     <title>7ちゃんねる掲示板</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-    <%#= csp_meta_tag %>
+
     <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'load' %>
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
@@ -18,12 +18,11 @@
     <link rel="stylesheet" type="text/css" href="../css/inbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
-    <!-- jquery & iScroll -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <!-- <script src="dist/jquery.fadethis.min.js"></script> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
-    <!-- drawer.js -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
   </head>
 
@@ -46,28 +45,21 @@
           <div class="navbar-item">
 
             <% if user_signed_in? %>
-            <li class="nav-item">
-            <%= link_to '投稿する', new_post_path, class:"nav-link" %></li>
+            <a class="navbar-item">
+            <%= link_to '投稿する', new_post_path %></a>
 
-            <li class="nav-item">
-            <%= link_to 'ログアウト', destroy_user_session_path, {method: :delete, class:"nav-link"} %>
-            </li>
+            <a class="navbar-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, {method: :delete} %>
+            </a>
            <% else %>
-           <li class="nav-item">
-            <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
-            </li>
-           <li class="nav-item">
-            <%= link_to '新規登録', new_user_registration_path, class:"nav-link" %>
-            </li>
+           <a class="navbar-item">
+            <%= link_to 'ログイン', new_user_session_path %>
+            </a>
+           <a class="navbar-item">
+            <%= link_to '新規登録', new_user_registration_path %>
+            </a>
             <% end %>
-            <!-- <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
-            </div> -->
+
           </div>
         </div>
       </div>
