@@ -1,0 +1,44 @@
+<div class="columns">
+  <div class="column is-7 is-offset-2">
+  <h1 class="title"><%= @post.title %></h1>
+  <p><%= @post.description %></p>
+
+    <hr>
+    <% @post.post_comments.each do |post_comment| %>
+
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= post_comment.id %>.<%= post_comment.user.name %></strong>
+          <%= post_comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+          <br>
+          <%= post_comment.comment %>
+          <br>
+        </p>
+      </div>
+  </article>
+
+    <% end %>
+    <article class="media">
+
+    <%= form_for [@post, @post_comment] do |f| %>
+
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <%= f.text_area :comment, class:"textarea", placeholder: "ここにコメントを" %>
+        </p>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <%= f.submit "コメントする", class: "button is-info" %>
+
+          </div>
+        </div>
+
+      </nav>
+    </div>
+    <% end %>
+  </article>
