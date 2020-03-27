@@ -24,13 +24,12 @@
               </div>
 
 
-              
+
 
               <div class="field">
                 <div class="control">
-                  <%#= f.label :post, "タグ" %>
-                  <%#= f.text_field :tag_list, value: @post.tag_list.join(','), class:"input is-primary is-small" %>
-                  <%#= f.text_field :tag_list, value: post.tag_list.join(','), class: "input is-primary is-medium" %>
+                  <%= f.label :tag_list, "タグ" %>
+                  <%= text_field_tag 'post[tag_list]', @post.tag_list.join(",") %>
                   </div>
                 </div>
 
